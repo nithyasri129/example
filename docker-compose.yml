@@ -1,0 +1,24 @@
+services:
+  app:
+    build: .
+    image: student-management-app:latest
+    container_name: student-management-app
+    ports:
+      - "5000:5000"
+    # Mount a named volume for DB data under /app/backend/data so it doesn't
+    # hide image files like node_modules and keeps the DB persistent.
+    volumes:
+      - db_data:/app/backend/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:5000/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+
+volumes:
+  db_data:
+    driver: local

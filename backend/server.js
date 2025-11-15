@@ -14,9 +14,15 @@ app.use(express.static(path.join(__dirname, "../frontend")));
 
 app.use("/students", studentRoutes);
 
+// Health check endpoint for Docker and monitoring
+app.get('/health', (req, res) => {
+  res.json({ status: 'ok', uptime: process.uptime() });
+});
+
 // Serve index.html for root path
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/index.html"));
 });
 
-app.listen(5000, () => console.log("Server running on port 5000"));
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
