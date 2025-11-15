@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: student-management-config
+  namespace: default
+  labels:
+    app: student-management
+data:
+  NODE_ENV: "production"
