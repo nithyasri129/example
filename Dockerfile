@@ -17,6 +17,9 @@ COPY frontend/ ../frontend/
 # Create data directory for SQLite DB
 RUN mkdir -p /app/backend/data
 
+# Install curl for healthcheck
+RUN apk add --no-cache curl
+
 # Expose port (server listens on 5000 by default)
 EXPOSE 5000
 
