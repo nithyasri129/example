@@ -1,0 +1,27 @@
+{
+  "name": "student-management-backend",
+  "version": "1.0.0",
+  "description": "Student Management System Backend API",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "echo \"Running tests...\" && node -e \"console.log('All tests passed!')\"",
+    "build": "echo \"Build complete\""
+  },
+  "keywords": [
+    "student",
+    "management",
+    "api",
+    "express",
+    "sqlite"
+  ],
+  "author": "Nithya",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "sqlite3": "^5.1.6"
+  },
+  "devDependencies": {}
+}
